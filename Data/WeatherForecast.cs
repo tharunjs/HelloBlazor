@@ -1,4 +1,4 @@
-namespace HelloBlazorServerApp.Data
+﻿namespace Data
 {
     public class WeatherForecast
     {
