@@ -6,14 +6,21 @@ namespace HelloBlazorServerApp.Pages
 {
     public partial class Index
     {
+        private string _myValue = string.Empty;
+
         //[Inject]
         //private ProtectedSessionStorage ProtectedSessionStore { get; set; }
 
         [Inject]
         private IMemoryCache MemoryCache { get; set; }
 
+        [Inject]
+        private IConfiguration Configuration { get; set; }
+
         protected override Task OnInitializedAsync()
         {
+            _myValue = Configuration.GetValue<string>("MyKey");
+
             return base.OnInitializedAsync();
         }
 
