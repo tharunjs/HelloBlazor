@@ -363,7 +363,6 @@ FodyWeavers.xsd
 /bin
 /obj
 
-appsettings.Development.json
 /Src/WebUI/ServerUI/appsettings.Dev.json
 
 
