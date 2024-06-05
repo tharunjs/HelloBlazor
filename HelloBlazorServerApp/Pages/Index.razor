@@ -10,6 +10,17 @@ Warm Welcome buddy.
 
 <div>My Key: <b>@_myValue</b></div>
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+<ErrorBoundary>
+    <SurveyPrompt Title="How is Blazor working for you?" />
+</ErrorBoundary>
 
-<button @onclick="@AddToStorage">Add to storage</button>
+<ErrorBoundary>
+    <ChildContent>
+        <SurveyPrompt Title="How is Blazor working for you?" />
+    </ChildContent>
+    <ErrorContent>
+        <div>sample error content</div>
+    </ErrorContent>
+</ErrorBoundary>
+
+<button style="margin-top: 15px;" @onclick="@AddToStorage">Add to storage</button>

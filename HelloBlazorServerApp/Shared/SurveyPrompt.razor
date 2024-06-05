@@ -13,4 +13,14 @@
     // Demonstrates how a parent component can supply parameters
     [Parameter]
     public string? Title { get; set; }
+
+    //protected override void OnInitialized()
+    //{
+    //    throw new Exception("test exception");
+    //}
+
+    protected override async Task OnInitializedAsync()
+    {
+        throw new Exception("test exception");
+    }
 }

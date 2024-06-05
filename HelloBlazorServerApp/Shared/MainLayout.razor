@@ -13,12 +13,38 @@
         </div>
 
         <article class="content px-4">
-            @Body
+            <ErrorBoundary @ref="@errorBoundary">
+                <ChildContent>
+                    @Body
+                </ChildContent>
+                <ErrorContent>
+                    <h1 style="color: red;">Something went wrong...</h1>
+                </ErrorContent>
+            </ErrorBoundary>
         </article>
 
-        <div class="bottom-row px-4">
+        <div class="bottom-row px-4 mt-5">
             <CultureSelector />
         </div>
 
     </main>
 </div>
+
+@code {
+    private ErrorBoundary errorBoundary;
+
+    protected override void OnParametersSet()
+    {
+        errorBoundary?.Recover();
+    }
+
+    //protected override void OnInitialized()
+    //{
+    //    errorBoundary?.Recover();
+    //}
+
+    protected override void OnInitialized()
+    {
+        throw new Exception("exception from mainlayout");
+    }
+}
